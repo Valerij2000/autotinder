@@ -12,65 +12,102 @@ window.addEventListener('DOMContentLoaded', () => {
 		{ id: 7, brand: 'Lexus', model: 'RX', price: 69000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200' },
 		{ id: 8, brand: 'Porsche', model: 'Cayenne', price: 98000, body: 'SUV', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
 		{ id: 9, brand: 'Volkswagen', model: 'Touareg', price: 58000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200' },
-		{ id: 10, brand: 'Skoda', model: 'Kodiaq', price: 41000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' }
+		{ id: 10, brand: 'Skoda', model: 'Kodiaq', price: 41000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
+		{ id: 11, brand: 'Ford', model: 'Explorer', price: 54000, body: 'SUV', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
+		{ id: 12, brand: 'Hyundai', model: 'Santa Fe', price: 45000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
+		{ id: 13, brand: 'Kia', model: 'Sorento', price: 47000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=1200' },
+		{ id: 14, brand: 'Nissan', model: 'X-Trail', price: 39000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1200' },
+		{ id: 15, brand: 'Mazda', model: 'CX-60', price: 52000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=1200' },
+		{ id: 16, brand: 'Peugeot', model: '5008', price: 38000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1493238792000-8113da705763?w=1200' },
+		{ id: 17, brand: 'Renault', model: 'Austral', price: 36000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200' },
+		{ id: 18, brand: 'Honda', model: 'CR-V', price: 48000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
+		{ id: 19, brand: 'Chevrolet', model: 'Tahoe', price: 87000, body: 'SUV', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
+		{ id: 20, brand: 'Jeep', model: 'Grand Cherokee', price: 63000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' }
 	];
 
 	const state = {
-		index: 0,
-		liked: 0,
-		disliked: 0,
-		animating: false,
-		progress: 0
+		currentIndex: 0,
+		liked: [],
+		disliked: [],
+		isAnimating: false,
+		lastAction: null // для undo
 	};
 
-	const el = {
-		container: document.querySelector('.card-container'),
-		like: document.getElementById('like-btn'),
-		dislike: document.getElementById('dislike-btn'),
-		bar: document.getElementById('accuracy-bar'),
-		text: document.getElementById('accuracy'),
-		likeCount: document.querySelector('.liked-count'),
-		dislikeCount: document.querySelector('.disliked-count'),
-		badgeLike: document.querySelector('.badge-like'),
-		badgeNope: document.querySelector('.badge-nope')
-	};
+	const cardContainer = document.querySelector('.card-container');
+	const likeBtn = document.getElementById('like-btn');
+	const dislikeBtn = document.getElementById('dislike-btn');
+	const undoBtn = document.getElementById('undo-btn');
 
-	// ---------------- PROGRESS ----------------
-
-	function updateProgress() {
-		const total = cars.length;
-
-		const percent = Math.min(
-			100,
-			(state.index / total) * 100
-		);
-
-		state.progress = percent;
-
-		if (el.bar) {
-			el.bar.style.width = percent + '%';
-
-			// цвет прогресса
-			if (percent < 40) el.bar.style.background = '#ef4444';
-			else if (percent < 75) el.bar.style.background = '#f59e0b';
-			else el.bar.style.background = '#22c55e';
-		}
-
-		if (el.text) {
-			el.text.textContent = Math.round(percent) + '%';
-		}
-	}
-
-	// ---------------- COUNTERS ----------------
+	// ---------------- UI ----------------
 
 	function updateCounters() {
-		if (el.likeCount) el.likeCount.textContent = state.liked;
-		if (el.dislikeCount) el.dislikeCount.textContent = state.disliked;
+		document.querySelector('.liked-count').textContent = state.liked.length;
+		document.querySelector('.disliked-count').textContent = state.disliked.length;
 	}
+
+	function vibrate(type) {
+		if (!navigator.vibrate) return;
+		navigator.vibrate(type === 'like' ? 40 : 20);
+	}
+
+	function updateProgress() {
+		const bar = document.getElementById('accuracy-bar');
+		const text = document.getElementById('accuracy');
+
+		const percent = (state.currentIndex / cars.length) * 100;
+
+    if (bar) {
+			bar.style.width = percent + '%';
+
+			// цвет прогресса
+			if (percent < 40) bar.style.background = '#ef4444';
+			else if (percent < 75) bar.style.background = '#f59e0b';
+			else bar.style.background = '#22c55e';
+		}
+
+    text.textContent = `${Math.round(percent)}%`;
+	}
+
+	function setTint(x) {
+  const top = cardContainer.lastElementChild;
+  if (!top) return;
+
+  const likeOverlay  = top.querySelector('.like-overlay');
+  const nopeOverlay  = top.querySelector('.nope-overlay');
+
+  const opacity = Math.min(Math.abs(x) / 100, 1);
+
+  if (x > 0) {
+    likeOverlay.style.opacity  = opacity;
+    nopeOverlay.style.opacity  = 0;
+    top.style.boxShadow = `0 0 ${Math.round(opacity * 60)}px rgba(34,197,94,${(opacity * 0.7).toFixed(2)})`;
+  } else if (x < 0) {
+    nopeOverlay.style.opacity  = opacity;
+    likeOverlay.style.opacity  = 0;
+    top.style.boxShadow = `0 0 ${Math.round(opacity * 60)}px rgba(239,68,68,${(opacity * 0.7).toFixed(2)})`;
+  } else {
+    likeOverlay.style.opacity  = 0;
+    nopeOverlay.style.opacity  = 0;
+    top.style.boxShadow = 'none';
+  }
+}
+
+	function clearTint() {
+  const top = cardContainer.lastElementChild;
+  if (!top) return;
+  cardContainer.style.background = 'transparent';
+  top.style.boxShadow = 'none';
+  const likeOverlay = top.querySelector('.like-overlay');
+  const nopeOverlay = top.querySelector('.nope-overlay');
+  if (likeOverlay) likeOverlay.style.opacity = 0;
+  if (nopeOverlay) nopeOverlay.style.opacity = 0;
+}
 
 	// ---------------- STACK PARALLAX ----------------
 
-	function applyStackEffect(cards) {
+	function updateStack() {
+		const cards = cardContainer.querySelectorAll('.card');
+
 		cards.forEach((c, i) => {
 			if (i === cards.length - 1) return;
 
@@ -97,11 +134,13 @@ window.addEventListener('DOMContentLoaded', () => {
 		card.dataset.id = car.id;
 
 		card.innerHTML = `
-			<div class="absolute bottom-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent text-white">
-				<h2 class="text-3xl font-bold">${car.brand} ${car.model}</h2>
-				<div class="text-xl">${car.price.toLocaleString()} €</div>
-				<div class="opacity-80">${car.body} • ${car.fuel} • ${car.transmission}</div>
-			</div>
+			<div class="swipe-overlay like-overlay"></div>
+      <div class="swipe-overlay nope-overlay"></div>
+      <div class="absolute bottom-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent text-white">
+        <h2 class="text-3xl font-bold">${car.brand} ${car.model}</h2>
+        <div class="text-xl">${car.price.toLocaleString()} €</div>
+        <div>${car.body} • ${car.fuel} • ${car.transmission}</div>
+      </div>
 		`;
 
 		return card;
@@ -109,171 +148,203 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// ---------------- RENDER ----------------
 
-	function render() {
-		el.container.innerHTML = '';
+	function renderCards() {
+		cardContainer.innerHTML = '';
 
-		const slice = cars.slice(state.index, state.index + 3);
+		const stack = cars.slice(state.currentIndex, state.currentIndex + 3);
 
-		if (!slice.length) {
+		if (!stack.length) {
 			showResult();
 			return;
 		}
 
-		slice.reverse().forEach(c => {
-			el.container.appendChild(createCard(c));
+		stack.reverse().forEach(car => {
+			cardContainer.appendChild(createCard(car));
 		});
 
-		const cards = [...el.container.querySelectorAll('.card')];
+		const top = cardContainer.lastElementChild;
+		if (top) initDrag(top);
 
-		applyStackEffect(cards);
-
-		const top = cards[cards.length - 1];
-
-		if (top) bindDrag(top);
-
-		updateProgress();
+		updateStack();
 		updateCounters();
+		updateProgress();
 	}
 
 	// ---------------- SWIPE ----------------
 
-	function swipe(dir) {
-		if (state.animating) return;
+	function swipe(dir, car) {
+		if (state.isAnimating) return;
 
-		const car = cars[state.index];
-		if (!car) return;
+		state.isAnimating = true;
+		vibrate(dir === 'right' ? 'like' : 'dislike');
 
-		state.animating = true;
+		state.lastAction = { dir, car };
 
-		const top = el.container.lastElementChild;
+		const top = cardContainer.lastElementChild;
 
-		if (!top) return;
+		// SNAP EFFECT (iOS feel)
+		const power = dir === 'right' ? 1 : -1;
 
-		top.style.transition = 'transform .35s ease, opacity .35s ease';
-
+		top.style.transition = 'transform 0.25s cubic-bezier(.2,.9,.2,1)';
 		top.style.transform =
-			dir === 'right'
-				? 'translateX(160vw) rotate(25deg)'
-				: 'translateX(-160vw) rotate(-25deg)';
+			`translateX(${power * 160}vw) rotate(${power * 25}deg)`;
 
 		setTimeout(() => {
 
-			if (dir === 'right') state.liked++;
-			else state.disliked++;
+			if (dir === 'right') state.liked.push(car);
+			else state.disliked.push(car);
 
-			state.index++;
-			state.animating = false;
+			state.currentIndex++;
 
-			render();
+			state.isAnimating = false;
 
-		}, 350);
+			clearTint();
+			renderCards();
+
+		}, 250);
 	}
 
-	// ---------------- DRAG + LIVE FEEDBACK ----------------
+	// ---------------- DRAG ----------------
 
-	function bindDrag(card) {
+	function initDrag(card) {
 
 		let startX = 0;
 		let dx = 0;
 
-		const move = (e) => {
+		const onDown = e => {
+			if (state.isAnimating) return;
+
+			startX = e.clientX;
+			card.setPointerCapture(e.pointerId);
+
+			card.onpointermove = onMove;
+			card.onpointerup = onUp;
+		};
+
+		const onMove = e => {
 			dx = e.clientX - startX;
 
+			// PARALLAX feel (Tinder depth)
 			card.style.transform =
-				`translateX(${dx}px) rotate(${dx / 12}deg)`;
+				`translateX(${dx}px)
+				 rotate(${dx / 12}deg)
+				 scale(${1 - Math.min(Math.abs(dx) / 1000, 0.05)})`;
 
-			// LIVE PROGRESS (ВАЖНО)
-			const progressDelta = Math.min(25, Math.abs(dx) / 8);
-
-			if (el.bar) {
-				el.bar.style.transform = `scaleX(${1 + progressDelta / 200})`;
-			}
-
-			// TINT
-			if (dx > 30) {
-				el.badgeLike?.classList.remove('hidden');
-				el.badgeNope?.classList.add('hidden');
-				card.style.boxShadow = '0 0 40px rgba(34,197,94,0.4)';
-			} else if (dx < -30) {
-				el.badgeNope?.classList.remove('hidden');
-				el.badgeLike?.classList.add('hidden');
-				card.style.boxShadow = '0 0 40px rgba(239,68,68,0.4)';
-			}
+			setTint(dx);
 		};
 
-		const up = () => {
+		const onUp = () => {
 
-			el.badgeLike?.classList.add('hidden');
-			el.badgeNope?.classList.add('hidden');
+			card.onpointermove = null;
+			card.onpointerup = null;
 
-			card.style.boxShadow = '';
+			clearTint();
 
-			if (dx > 120) return swipe('right');
-			if (dx < -120) return swipe('left');
+			if (dx > 120) return swipe('right', cars[state.currentIndex]);
+			if (dx < -120) return swipe('left', cars[state.currentIndex]);
 
-			card.style.transition = 'transform .25s ease';
-			card.style.transform = 'translateX(0) rotate(0deg)';
+			card.style.transition = 'transform 0.2s ease-out';
+			card.style.transform = 'translateX(0) rotate(0) scale(1)';
 		};
 
-		card.onpointerdown = (e) => {
-			if (state.animating) return;
-			startX = e.clientX;
-
-			card.setPointerCapture(e.pointerId);
-			card.onpointermove = move;
-			card.onpointerup = up;
-		};
+		card.onpointerdown = onDown;
 	}
 
-	// ---------------- RESULT ----------------
+	// ---------------- AI RECOMMENDATION ----------------
+
+	function getAIRecommendation() {
+
+		const scoreMap = new Map();
+
+		state.liked.forEach(car => {
+			scoreMap.set(car.id, (scoreMap.get(car.id) || 0) + 2);
+		});
+
+		state.disliked.forEach(car => {
+			scoreMap.set(car.id, (scoreMap.get(car.id) || 0) - 1);
+		});
+
+		let best = cars[0];
+		let bestScore = -Infinity;
+
+		for (const car of cars) {
+			const score = scoreMap.get(car.id) || 0;
+			if (score > bestScore) {
+				bestScore = score;
+				best = car;
+			}
+		}
+
+		return best;
+	}
+
+	// ---------------- UNDO ----------------
+
+	function undo() {
+		if (!state.lastAction || state.currentIndex === 0) return;
+
+		const { dir, car } = state.lastAction;
+
+		state.currentIndex--;
+
+		if (dir === 'right') {
+			state.liked.pop();
+		} else {
+			state.disliked.pop();
+		}
+
+		state.lastAction = null;
+
+		renderCards();
+	}
+
+	// ---------------- RESULT ---------------- Готово 🎯
 
 	function showResult() {
 
-		el.container.innerHTML = `
+		cardContainer.style.height = '300px';
+
+		const best = getAIRecommendation();
+
+		cardContainer.innerHTML = `
 			<div class="bg-white p-8 rounded-3xl shadow-2xl text-center">
-
-				<h2 class="text-3xl font-bold mb-4">
-					Готово 🎯
-				</h2>
-
-				<p class="mb-2">Купил бы: ${state.liked}</p>
-				<p class="mb-6">Не купил: ${state.disliked}</p>
-
-				<button id="restart"
-					class="bg-green-500 text-white px-6 py-3 rounded-full w-full mb-3">
-					Начать заново
-				</button>
-
-				<button id="recommend"
-					class="bg-blue-500 text-white px-6 py-3 rounded-full w-full mb-3">
-					Получить рекомендацию
-				</button>
-
-				<a href="https://max.ru"
-				   target="_blank"
-				   class="text-blue-600 underline">
-					Наш MAX канал
-				</a>
-
-			</div>
+        <h2 class="text-3xl font-bold mb-3">Готово 🎯</h2>
+        <p class="mb-3">Лучший вариант для вас:</p>
+        <div class="mb-4 font-bold text-xl">
+          ${best.brand} ${best.model}
+        </div>
+        <a href="https://t.me/Avtoraketaa" target="_blank"
+          class="block bg-blue-500 text-white px-6 py-3 rounded-full w-full mb-3">
+          Получить рекомендацию
+        </a>
+        <button id="restart"
+          class="bg-green-500 text-white px-6 py-3 rounded-full w-full mb-3">
+          Начать заново
+        </button>
+        <a href="https://max.ru/id930500136187_biz" target="_blank" class="text-blue-600 underline">
+          Канал в MAX
+        </a>
+      </div>
 		`;
 
 		document.getElementById('restart').onclick = () => {
-			state.index = 0;
-			state.liked = 0;
-			state.disliked = 0;
-			render();
-		};
 
-		document.getElementById('recommend').onclick = () => {
-			alert('Рекомендация сформирована 🚗');
+			state.currentIndex = 0;
+			state.liked = [];
+			state.disliked = [];
+			state.lastAction = null;
+
+			cardContainer.style.height = '500px';
+
+			renderCards();
 		};
 	}
 
-	// ---------------- INIT ----------------
+	// ---------------- EVENTS ----------------
 
-	el.like?.addEventListener('click', () => swipe('right'));
-	el.dislike?.addEventListener('click', () => swipe('left'));
+	likeBtn?.addEventListener('click', () => swipe('right', cars[state.currentIndex]));
+	dislikeBtn?.addEventListener('click', () => swipe('left', cars[state.currentIndex]));
+	undoBtn?.addEventListener('click', undo);
 
-	render();
+	renderCards();
 });
