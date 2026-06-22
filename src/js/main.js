@@ -3,26 +3,26 @@ import '../scss/style.scss';
 window.addEventListener('DOMContentLoaded', () => {
 
 	const cars = [
-		{ id: 1, brand: 'BMW', model: 'X5', price: 65000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1200' },
-		{ id: 2, brand: 'Audi', model: 'Q7', price: 62000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200' },
-		{ id: 3, brand: 'Tesla', model: 'Model Y', price: 59000, body: 'SUV', fuel: 'Electric', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1200' },
-		{ id: 4, brand: 'Mercedes', model: 'GLE', price: 72000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
-		{ id: 5, brand: 'Volvo', model: 'XC90', price: 61000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
-		{ id: 6, brand: 'Toyota', model: 'RAV4', price: 42000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=1200' },
-		{ id: 7, brand: 'Lexus', model: 'RX', price: 69000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200' },
-		{ id: 8, brand: 'Porsche', model: 'Cayenne', price: 98000, body: 'SUV', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
-		{ id: 9, brand: 'Volkswagen', model: 'Touareg', price: 58000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200' },
-		{ id: 10, brand: 'Skoda', model: 'Kodiaq', price: 41000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
-		{ id: 11, brand: 'Ford', model: 'Explorer', price: 54000, body: 'SUV', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
-		{ id: 12, brand: 'Hyundai', model: 'Santa Fe', price: 45000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
-		{ id: 13, brand: 'Kia', model: 'Sorento', price: 47000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=1200' },
-		{ id: 14, brand: 'Nissan', model: 'X-Trail', price: 39000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1200' },
-		{ id: 15, brand: 'Mazda', model: 'CX-60', price: 52000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=1200' },
-		{ id: 16, brand: 'Peugeot', model: '5008', price: 38000, body: 'SUV', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1493238792000-8113da705763?w=1200' },
-		{ id: 17, brand: 'Renault', model: 'Austral', price: 36000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200' },
-		{ id: 18, brand: 'Honda', model: 'CR-V', price: 48000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
-		{ id: 19, brand: 'Chevrolet', model: 'Tahoe', price: 87000, body: 'SUV', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
-		{ id: 20, brand: 'Jeep', model: 'Grand Cherokee', price: 63000, body: 'SUV', fuel: 'Hybrid', transmission: 'Automatic', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' }
+		{ id: 1, brand: 'BMW', model: 'X5', price: 65000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1200' },
+		{ id: 2, brand: 'Audi', model: 'Q7', price: 62000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200' },
+		{ id: 3, brand: 'Tesla', model: 'Model Y', price: 59000, body: 'Внедорожник', fuel: 'Электро', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1200' },
+		{ id: 4, brand: 'Mercedes', model: 'GLE', price: 72000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
+		{ id: 5, brand: 'Volvo', model: 'XC90', price: 61000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
+		{ id: 6, brand: 'Toyota', model: 'RAV4', price: 42000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=1200' },
+		{ id: 7, brand: 'Lexus', model: 'RX', price: 69000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200' },
+		{ id: 8, brand: 'Porsche', model: 'Cayenne', price: 98000, body: 'Внедорожник', fuel: 'Бензин', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
+		{ id: 9, brand: 'Volkswagen', model: 'Touareg', price: 58000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200' },
+		{ id: 10, brand: 'Skoda', model: 'Kodiaq', price: 41000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
+		{ id: 11, brand: 'Ford', model: 'Explorer', price: 54000, body: 'Внедорожник', fuel: 'Бензин', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
+		{ id: 12, brand: 'Hyundai', model: 'Santa Fe', price: 45000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
+		{ id: 13, brand: 'Kia', model: 'Sorento', price: 47000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=1200' },
+		{ id: 14, brand: 'Nissan', model: 'X-Trail', price: 39000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1200' },
+		{ id: 15, brand: 'Mazda', model: 'CX-60', price: 52000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=1200' },
+		{ id: 16, brand: 'Peugeot', model: '5008', price: 38000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1493238792000-8113da705763?w=1200' },
+		{ id: 17, brand: 'Renault', model: 'Austral', price: 36000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200' },
+		{ id: 18, brand: 'Honda', model: 'CR-V', price: 48000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
+		{ id: 19, brand: 'Chevrolet', model: 'Tahoe', price: 87000, body: 'Внедорожник', fuel: 'Бензин', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
+		{ id: 20, brand: 'Jeep', model: 'Grand Cherokee', price: 63000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' }
 	];
 
 	const state = {
@@ -176,6 +176,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		if (state.isAnimating) return;
 
 		state.isAnimating = true;
+    setButtonsDisabled(true);
 		vibrate(dir === 'right' ? 'like' : 'dislike');
 
 		state.lastAction = { dir, car };
@@ -197,7 +198,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			state.currentIndex++;
 
 			state.isAnimating = false;
-
+      setButtonsDisabled(false); 
 			clearTint();
 			renderCards();
 
@@ -283,6 +284,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	function undo() {
 		if (!state.lastAction || state.currentIndex === 0) return;
 
+    setButtonsDisabled(true);
+
 		const { dir, car } = state.lastAction;
 
 		state.currentIndex--;
@@ -296,15 +299,59 @@ window.addEventListener('DOMContentLoaded', () => {
 		state.lastAction = null;
 
 		renderCards();
+
+    setTimeout(() => setButtonsDisabled(false), 150);
 	}
+
+  function setButtonsDisabled(disabled) {
+    [likeBtn, dislikeBtn, undoBtn].forEach(btn => {
+      if (!btn) return;
+      btn.disabled = disabled;
+      btn.style.opacity = disabled ? '0.4' : '1';
+      btn.style.pointerEvents = disabled ? 'none' : 'auto';
+    });
+  }
 
 	// ---------------- RESULT ---------------- Готово 🎯
 
 	function showResult() {
 
+    [likeBtn, dislikeBtn, undoBtn].forEach(btn => {
+      if (btn) btn.style.display = 'none';
+    });
+
 		cardContainer.style.height = '300px';
 
 		const best = getAIRecommendation();
+
+    // конфетти
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js';
+    script.onload = () => {
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#a855f7']
+      });
+
+      // второй залп через паузу
+      setTimeout(() => {
+        confetti({
+          particleCount: 80,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 80,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+      }, 400);
+    };
+    document.head.appendChild(script);
 
 		cardContainer.innerHTML = `
 			<div class="bg-white p-8 rounded-3xl shadow-2xl text-center">
@@ -328,6 +375,10 @@ window.addEventListener('DOMContentLoaded', () => {
 		`;
 
 		document.getElementById('restart').onclick = () => {
+      
+      [likeBtn, dislikeBtn, undoBtn].forEach(btn => {
+        if (btn) btn.style.display = '';
+      });
 
 			state.currentIndex = 0;
 			state.liked = [];
