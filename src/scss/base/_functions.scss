@@ -1,0 +1,24 @@
+@function pxToDesktopVH($value, $screenHeight: 1080) {
+  @return calc(calc($value / $screenHeight) * 100vh);
+}
+
+@function pxToDesktopVW($value, $screenWidth: 1920) {
+  @return calc($value / $screenWidth) * 100vw;
+}
+
+@function pxToMobileVH($value, $screenHeight: 800) {
+  @return calc(calc($value / $screenHeight) * 100vh);
+}
+
+@function pxToMobileVW($value, $screenWidth: 360) {
+  @return calc($value / $screenWidth) * 100vw;
+}
+
+// custom dvh functions (use only if you have calc dvh script)
+@function pxToDesktopDVH($value, $screenHeight: 1080) {
+  @return calc(calc($value / $screenHeight) * calc(var(--dvh, 1vh) * 100));
+}
+
+@function pxToMobileDVH($value, $screenHeight: 800) {
+  @return calc(calc($value / $screenHeight) * calc(var(--dvh, 1vh) * 100));
+}

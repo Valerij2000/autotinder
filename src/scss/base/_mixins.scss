@@ -1,0 +1,67 @@
+// desktop
+@mixin pxItemSizeDeskToVH($width, $height, $templateHeight: 1080) {
+  width: calc($height / $templateHeight) * calc($width / $height) * 100vh;
+  height: calc($height / $templateHeight) * 100vh;
+}
+
+@mixin pxItemSizeDeskToDVH($width, $height, $templateHeight: 1080) {
+  width: calc(calc($height / $templateHeight) * calc($width / $height) * calc(var(--dvh, 1vh) * 100));
+  height: calc(calc($height / $templateHeight) * calc(var(--dvh, 1vh) * 100));
+}
+
+@mixin pxItemSizeDeskToVW($width, $height, $templateWidth: 1920) {
+  width: calc($width / $templateWidth) * 100vw;
+  height: calc($width / $templateWidth) * calc($height / $width) * 100vw;
+}
+
+// mob
+@mixin pxItemSizeMobToVH($width, $height, $templateHeight: 800) {
+  width: calc($height / $templateHeight) * calc($width / $height) * 100vh;
+  height: calc($height / $templateHeight) * 100vh;
+}
+
+@mixin pxItemSizeMobToDVH($width, $height, $templateHeight: 800) {
+  width: calc(calc($height / $templateHeight) * calc($width / $height) * calc(var(--dvh, 1vh) * 100));
+  height: calc(calc($height / $templateHeight) * calc(var(--dvh, 1vh) * 100));
+}
+
+@mixin pxItemSizeMobToVW($width, $height, $templateWidth: 360) {
+  width: calc($width / $templateWidth) * 100vw;
+  height: calc($width / $templateWidth) * calc($height / $width) * 100vw;
+}
+
+// with min-height
+@mixin pxItemSizeDeskAdaptiveToVH($width, $height, $templateHeight: 1080) {
+  width: calc($height / $templateHeight) * calc($width / $height) * 100vh;
+  min-height: calc($height / $templateHeight) * 100vh;
+}
+
+@mixin pxItemSizeDeskAdaptiveToVW($width, $height, $templateWidth: 1920) {
+  width: calc($width / $templateWidth) * 100vw;
+  min-height: calc($width / $templateWidth) * calc($height / $width) * 100vw;
+}
+
+@mixin appear {
+  animation: fade-appear 1s ease-in-out;
+
+  @keyframes fade-appear {
+    0% {
+      opacity: 0;
+    }
+
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@function rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+
+@function em($px, $current: 16) {
+  $result: math.div($px, $current) + em;
+  @return $result;
+}
