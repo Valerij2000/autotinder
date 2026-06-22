@@ -1,11 +1,15 @@
+@charset "UTF-8";
 .card {
+  min-width: 100%;
   max-width: 400px;
   height: 500px;
   position: absolute;
   will-change: transform;
   transition: all 0.3s ease-out;
   cursor: grab;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   touch-action: none;
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
@@ -23,9 +27,7 @@
 }
 
 .card-content {
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
   color: white;
   padding: 30px;
   border-radius: 0 0 20px 20px;
@@ -83,7 +85,6 @@
 .dislike-btn {
   background-color: white;
   color: #ff4757;
-
   cursor: pointer;
   padding: 8px;
   width: 48px;
@@ -96,7 +97,6 @@
 .like-btn {
   background-color: white;
   color: #1dd1a1;
-
   cursor: pointer;
   padding: 8px;
   width: 48px;
@@ -190,12 +190,11 @@
   left: 24px;
   color: #22c55e;
   border-color: #22c55e;
-  content: 'БЕРУ';
+  content: "БЕРУ";
   transform: rotate(-15deg);
-
-  &::after {
-    content: 'БЕРУ';
-  }
+}
+.like-overlay::after {
+  content: "БЕРУ";
 }
 
 .nope-overlay {
@@ -203,8 +202,7 @@
   color: #ef4444;
   border-color: #ef4444;
   transform: rotate(15deg);
-
-  &::after {
-    content: 'МИМО';
-  }
 }
+.nope-overlay::after {
+  content: "МИМО";
+}/*# sourceMappingURL=main.css.map */

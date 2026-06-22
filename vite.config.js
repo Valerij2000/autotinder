@@ -9,6 +9,7 @@ import injectHTML from 'vite-plugin-html-inject';
 
 
 export default defineConfig({
+	base: '/avtotinder/',
   plugins: [
 		injectHTML(),
 		ViteImageOptimizer({
