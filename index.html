@@ -2,77 +2,120 @@
 <html lang="ru">
 
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<load src="src/html/head/head.html" />
+
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+	<title>AutoTinder</title>
 </head>
 
-<body class="body">
+<body class="bg-gray-100">
 
 	<main id="app">
-		<section class="bg-gray-100 min-h-screen font-sans">
-			<div class="container mx-auto px-4 py-8">
-				<header class="text-center mb-8">
-					<h1 class="text-4xl font-bold text-gray-800 mb-2">AutoTinder</h1>
-					<p class="text-gray-600">Свайпайте автомобили и найдите свой идеальный вариант <i
-							class="fas fa-paw ml-1 text-pink-500"></i></p>
+
+		<section class="min-h-screen font-sans">
+
+			<div class="container mx-auto px-4 py-14">
+
+				<header class="text-center mb-4">
+
+					<h1 class="text-5xl font-bold text-gray-800 mb-2">
+						АвтоТиндер
+					</h1>
+
+					<p class="text-gray-600 mb-4">
+						Свайпайте автомобили и найдите свой идеальный вариант
+						<i class="fas fa-car-side text-blue-500"></i>
+					</p>
+
 				</header>
 
-				<div class="text-center mb-4">
+				<div class="text-center mb-6">
+
 					<div class="text-sm text-gray-500">
-						Точность подбора:
+						Точность определения:
 						<span id="accuracy">15%</span>
 					</div>
 
-					<div class="w-full bg-gray-200 rounded-full h-2 mt-2">
-						<div id="accuracy-bar" class="bg-green-500 h-2 rounded-full" style="width:15%">
+					<div class="w-full max-w-md mx-auto bg-gray-200 rounded-full h-2 mt-2">
+
+						<div id="accuracy-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500" style="width:15%">
 						</div>
+
 					</div>
+
 				</div>
 
-				<div class="counter hidden">
-					❤️ Купил бы:
-					<span class="liked-count text-green-500">0</span> /
-					❌ Не купил:
-					<span class="disliked-count text-red-500">0</span>
+				<div class="counter text-center mb-5">
+
+					<div class="flex justify-center gap-2">
+
+
+						<div>
+							❤️ Купил бы:
+							<span class="liked-count font-bold">0</span>
+						</div>
+
+						<div>
+							❌ Не купил:
+							<span class="disliked-count font-bold">0</span>
+						</div>
+
+					</div>
+
 				</div>
 
-				<div class="card-container">
+				<div class="card-container relative w-[380px] h-[620px] mx-auto">
+
 					<div class="empty-state hidden">
-						<i class="fas fa-cat cat-icon"></i>
-						<h3 class="text-xl font-semibold mb-2">No more adorable cats!</h3>
-						<p class="text-gray-600 mb-4">You've swiped through all our lovely cats.</p>
-						<button class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full transition">
-							Find more
-						</button>
+
+						<div class="text-center">
+
+							<h2 class="text-4xl font-bold mb-5">
+								🎯 Мы нашли ваш идеальный автомобиль
+							</h2>
+
+							<div id="result-card"></div>
+
+						</div>
+
 					</div>
 
-					<div class="cat-paw paw-left">
-						<i class="fas fa-paw"></i>
+					<div class="swipe-badge badge-nope absolute top-10 left-5 z-50 hidden text-5xl">
+						❌
 					</div>
 
-					<div class="cat-paw paw-right">
-						<i class="fas fa-paw"></i>
+					<div class="swipe-badge badge-like absolute top-10 right-5 z-50 hidden text-5xl">
+						❤️
 					</div>
 
-					<!-- Cards will be inserted here by JavaScript -->
 				</div>
 
-				<div class="action-buttons">
-					<div class="dislike-btn" id="dislike-btn">
+				<div class="action-buttons flex justify-center gap-2 mt-2">
+
+					<button id="dislike-btn" class="w-16 h-16 rounded-full bg-red-500 text-white text-2xl shadow-xl">
 						<i class="fas fa-times"></i>
-					</div>
-					<div class="like-btn" id="like-btn">
+					</button>
+
+					<button id="like-btn" class="w-16 h-16 rounded-full bg-green-500 text-white text-2xl shadow-xl">
 						<i class="fas fa-heart"></i>
-					</div>
+					</button>
+
 				</div>
 
-				<div class="mt-12 text-center text-gray-500">
-					<p>Made with <i class="fas fa-heart text-red-400"></i> for cat lovers</p>
-				</div>
 			</div>
+
 		</section>
+
 	</main>
 
 	<script type="module" src="src/js/main.js"></script>
+
 </body>
 
 </html>
