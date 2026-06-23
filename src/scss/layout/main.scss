@@ -15,10 +15,19 @@
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
+
+  @media (min-width: $xsm) {
+    min-width: 100%;
+  }
 }
 
 .logo {
-  max-width: 100%;
+  max-width: 25%;
+  height: auto;
+}
+
+.banner {
+  max-width: 20%;
   height: auto;
 }
 
