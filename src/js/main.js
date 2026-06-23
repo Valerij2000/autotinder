@@ -37,6 +37,60 @@ window.addEventListener('DOMContentLoaded', () => {
 	const likeBtn = document.getElementById('like-btn');
 	const dislikeBtn = document.getElementById('dislike-btn');
 	const undoBtn = document.getElementById('undo-btn');
+	const onboarding = document.getElementById('onboarding');
+
+	// ---------------- ONBOARDING ---------------- 
+
+	function initOnboarding() {
+
+		if (localStorage.getItem('autotinder_onboarding')) {
+			return;
+		}
+
+		const onboarding = document.getElementById('onboarding');
+
+		if (!onboarding) return;
+
+		onboarding.classList.remove('hidden');
+
+		document.addEventListener('pointerdown', hideOnboarding);
+		document.addEventListener('touchstart', hideOnboarding);
+		document.addEventListener('click', hideOnboarding);
+	}
+
+	function completeOnboarding() {
+
+		localStorage.setItem(
+			'autotinder_onboarding',
+			'true'
+		);
+
+		onboarding?.classList.add('hidden');
+	}
+
+	function hideOnboarding() {
+
+		localStorage.setItem(
+			'autotinder_onboarding',
+			'true'
+		);
+
+		const onboarding = document.getElementById('onboarding');
+
+		if (!onboarding) return;
+
+		onboarding.classList.add('hidden');
+
+		document.removeEventListener('pointerdown', hideOnboarding);
+		document.removeEventListener('touchstart', hideOnboarding);
+		document.removeEventListener('click', hideOnboarding);
+	}
+
+	if (!localStorage.getItem('autotinder_onboarding')) {
+		setTimeout(() => {
+			initOnboarding();
+		}, 3000);
+	}
 
 	// ---------------- UI ----------------
 
@@ -173,6 +227,15 @@ window.addEventListener('DOMContentLoaded', () => {
 	// ---------------- SWIPE ----------------
 
 	function swipe(dir, car) {
+		if (
+			!localStorage.getItem(
+				'autotinder_onboarding'
+			)
+		) {
+			completeOnboarding();
+		}
+
+
 		if (state.isAnimating) return;
 
 		state.isAnimating = true;
@@ -201,7 +264,6 @@ window.addEventListener('DOMContentLoaded', () => {
       setButtonsDisabled(false); 
 			clearTint();
 			renderCards();
-
 		}, 250);
 	}
 
