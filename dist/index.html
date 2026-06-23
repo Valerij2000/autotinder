@@ -15,14 +15,15 @@
 <meta property="og:image" content="/preview_image.png">
 <meta property="og:image:width" content="968" />
 <meta property="og:image:height" content="504" />
+<link rel="shortcut icon" type="image/png" href="./favicon.ico">
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <title>Автотиндер</title>
-  <script type="module" crossorigin src="/avtotinder/assets/index-d11e7d63.js"></script>
-  <link rel="stylesheet" href="/avtotinder/assets/index-4cd258aa.css">
+  <script type="module" crossorigin src="/avtotinder/assets/index-255d496e.js"></script>
+  <link rel="stylesheet" href="/avtotinder/assets/index-cabbbcb9.css">
 </head>
 
 <body class="bg-gray-100">
@@ -31,38 +32,36 @@
 
 		<section class="min-h-screen font-sans">
 
-			<div class="container mx-auto px-4 py-14">
+			<div class="container mx-auto px-4 py-4">
 
-				<header class="text-center mb-4">
-
-					<h1 class="text-5xl font-bold text-gray-800 mb-2">
-						АвтоТиндер
-					</h1>
-
-					<p class="text-gray-600 mb-4">
-						Свайпайте автомобили и найдите свой идеальный вариант
-						<i class="fas fa-car-side text-blue-500"></i>
-					</p>
-
-				</header>
-
-				<div class="text-center mb-8">
-
-					<div class="text-sm text-gray-500">
-						Точность определения:
-						<span id="accuracy">15%</span>
+				<div class="hero">
+					<div class="row-hero mb-4">
+						<img class="logo" src="./logo.svg" alt="Logo">
+						<header class="text-center">
+							<h1 class="text-3xl font-bold text-gray-800 flex justify-end items-center gap-2 mb-1">
+								АвтоТиндер
+								<img class="banner" src="./banner.png" alt="Banner">
+							</h1>
+							<p class="text-gray-600 leading-[1.5] text-right">
+								Свайпайте автомобили и найдите свой идеальный вариант
+							</p>
+						</header>
 					</div>
-
-					<div class="w-full max-w-md mx-auto bg-gray-200 rounded-full h-2 mt-2">
-
-						<div id="accuracy-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500" style="width:15%">
+					<hr>
+					<div class="text-center mt-4">
+						<div class="text-sm text-gray-500">
+							Точность определения:
+							<span id="accuracy">15%</span>
 						</div>
-
+						<div class="w-full max-w-md mx-auto bg-gray-200 rounded-full h-2 mt-2">
+							<div id="accuracy-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500"
+								style="width:15%">
+							</div>
+						</div>
 					</div>
-
 				</div>
 
-				<div class="counter text-center mb-5">
+				<div class="counter text-center mb-5 hidden">
 
 					<div class="flex justify-center gap-2">
 

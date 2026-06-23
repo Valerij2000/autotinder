@@ -3,26 +3,26 @@ import '../scss/style.scss';
 window.addEventListener('DOMContentLoaded', () => {
 
 	const cars = [
-		{ id: 1, brand: 'Volkswagen', model: 'Tharu', price: '2.300.000', body: 'Передний привод', fuel: 'Пробег: 5 400 км', transmission: 'Состояние нового автомобиля под заказ из Китая 🇨🇳', image: 'src/img/cars/car1.jpeg' },
-		{ id: 2, brand: 'BMW 3', model: 'Series 2023', price: '3 440 000', body: 'Задний привод', fuel: 'Пробег: 32 000 км', transmission: 'Родной окрас, без перекрасов под заказ из Китая 🇨🇳', image: 'src/img/cars/car2.jpeg' },
-		{ id: 3, brand: 'KIA', model: 'KX3 2021', price: '1 890 000', body: 'Передний привод', fuel: 'Пробег: 35 000 км', transmission: 'Родной окрас, без перекрасов', image: 'src/img/cars/car3.jpeg' },
-		{ id: 4, brand: 'Hyundai', model: 'Venue 2022', price: '1 721 ООО', body: 'Внедорожник', fuel: '1,6/ 76 т.км', transmission: 'Автомат', image: 'src/img/cars/car4.jpeg' },
-		{ id: 5, brand: 'Hyundai', model: 'Venue 2023', price: '1 601 ООО', body: 'Внедорожник', fuel: ',6/ 39 т.км', transmission: 'Автомат', image: 'src/img/cars/car5.jpeg' },
-		{ id: 6, brand: 'Nissan', model: 'Kicks 2025', price: '2 412 ООО', body: 'Внедорожник', fuel: '2/ 736 миль', transmission: 'Автомат', image: 'src/img/cars/car6.jpeg' },
-		{ id: 7, brand: 'Mitsubishi', model: 'Outlander 2023', price: '1 746 ООО', body: 'Внедорожник', fuel: '2/ 45 т км', transmission: 'Автомат', image: 'src/img/cars/car7.jpeg' },
-		{ id: 8, brand: 'Hyundai', model: 'Kona 2023', price: '1 871 ООО', body: 'Внедорожник', fuel: '2/ 11 т км', transmission: 'Автомат', image: 'src/img/cars/car8.jpeg' },
-		{ id: 9, brand: 'Hyundai', model: 'Kona 2023', price: '1 753 ООО', body: 'Внедорожник', fuel: '2/ 70 т км', transmission: 'Автомат', image: 'src/img/cars/car9.jpeg' },
-		{ id: 10, brand: 'Kia', model: 'SELTOS 2023', price: '1 785 ООО', body: 'Внедорожник', fuel: '2/ 53 т км', transmission: 'Автомат', image: 'src/img/cars/car10.jpeg' },
-		{ id: 11, brand: 'Hyundai', model: 'Elantra 2025', price: '1 825 ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2/ 357 км', transmission: 'Автомат', image: 'src/img/cars/car11.jpeg' },
-		{ id: 12, brand: 'Volkswagen', model: 'Jetta 2021', price: '1 597 ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 59 т миль', transmission: 'Автомат', image: 'src/img/cars/car12.jpeg' },
-		{ id: 13, brand: 'KIA', model: 'SOUL 2023', price: '1 83О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 47 т км', transmission: 'Автомат', image: 'src/img/cars/car13.jpeg' },
-		{ id: 14, brand: 'Volkswagen', model: 'Jetta 2021', price: '1 4OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 41 т км', transmission: 'Автомат', image: 'src/img/cars/car14.jpeg' },
-		{ id: 15, brand: 'KIA', model: 'K4 2025', price: ' 2 7OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 3 т км', transmission: 'Автомат', image: 'src/img/cars/car15.jpeg' },
-		{ id: 16, brand: 'Chevrolet', model: 'Trax 2022', price: '1 52О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 78 т км', transmission: 'Автомат', image: 'src/img/cars/car16.jpeg' },
-		{ id: 17, brand: 'Toyota', model: 'Corolla 02/2023', price: '2 О8О ООО', body: 'Дилерский. Тойота центр. Привезём в кратчайшие сроки.', fuel: '1,6/135 л.с', transmission: 'Автомат', image: 'src/img/cars/car17.jpeg' },
-		{ id: 18, brand: 'Nissan', model: 'Kicks 2023', price: '1 65О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,6 / 47 т км', transmission: 'Автомат', image: 'src/img/cars/car18.jpeg' },
-		{ id: 19, brand: 'KIA', model: 'Sportage 2023', price: '4 37О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,6 / 70 т км', transmission: 'Автомат', image: 'src/img/cars/car19.jpeg' },
-		{ id: 20, brand: 'Mercedes', model: 'GLE350 2025', price: '9 7OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 13 т.миль', transmission: 'Автомат', image: 'src/img/cars/car20.jpeg' }
+		{ id: 1, brand: 'Volkswagen', model: 'Tharu', price: '2.300.000', body: 'Передний привод', fuel: 'Пробег: 5 400 км', transmission: 'Состояние нового автомобиля под заказ из Китая 🇨🇳', image: './cars/car1.jpeg' },
+		{ id: 2, brand: 'BMW 3', model: 'Series 2023', price: '3 440 000', body: 'Задний привод', fuel: 'Пробег: 32 000 км', transmission: 'Родной окрас, без перекрасов под заказ из Китая 🇨🇳', image: './cars/car2.jpeg' },
+		{ id: 3, brand: 'KIA', model: 'KX3 2021', price: '1 890 000', body: 'Передний привод', fuel: 'Пробег: 35 000 км', transmission: 'Родной окрас, без перекрасов', image: './cars/car3.jpeg' },
+		{ id: 4, brand: 'Hyundai', model: 'Venue 2022', price: '1 721 ООО', body: 'Внедорожник', fuel: '1,6/ 76 т.км', transmission: 'Автомат', image: './cars/car4.jpeg' },
+		{ id: 5, brand: 'Hyundai', model: 'Venue 2023', price: '1 601 ООО', body: 'Внедорожник', fuel: ',6/ 39 т.км', transmission: 'Автомат', image: './cars/car5.jpeg' },
+		{ id: 6, brand: 'Nissan', model: 'Kicks 2025', price: '2 412 ООО', body: 'Внедорожник', fuel: '2/ 736 миль', transmission: 'Автомат', image: './cars/car6.jpeg' },
+		{ id: 7, brand: 'Mitsubishi', model: 'Outlander 2023', price: '1 746 ООО', body: 'Внедорожник', fuel: '2/ 45 т км', transmission: 'Автомат', image: './cars/car7.jpeg' },
+		{ id: 8, brand: 'Hyundai', model: 'Kona 2023', price: '1 871 ООО', body: 'Внедорожник', fuel: '2/ 11 т км', transmission: 'Автомат', image: './cars/car8.jpeg' },
+		{ id: 9, brand: 'Hyundai', model: 'Kona 2023', price: '1 753 ООО', body: 'Внедорожник', fuel: '2/ 70 т км', transmission: 'Автомат', image: './cars/car9.jpeg' },
+		{ id: 10, brand: 'Kia', model: 'SELTOS 2023', price: '1 785 ООО', body: 'Внедорожник', fuel: '2/ 53 т км', transmission: 'Автомат', image: './cars/car10.jpeg' },
+		{ id: 11, brand: 'Hyundai', model: 'Elantra 2025', price: '1 825 ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2/ 357 км', transmission: 'Автомат', image: './cars/car11.jpeg' },
+		{ id: 12, brand: 'Volkswagen', model: 'Jetta 2021', price: '1 597 ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 59 т миль', transmission: 'Автомат', image: './cars/car12.jpeg' },
+		{ id: 13, brand: 'KIA', model: 'SOUL 2023', price: '1 83О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 47 т км', transmission: 'Автомат', image: './cars/car13.jpeg' },
+		{ id: 14, brand: 'Volkswagen', model: 'Jetta 2021', price: '1 4OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 41 т км', transmission: 'Автомат', image: './cars/car14.jpeg' },
+		{ id: 15, brand: 'KIA', model: 'K4 2025', price: ' 2 7OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 3 т км', transmission: 'Автомат', image: './cars/car15.jpeg' },
+		{ id: 16, brand: 'Chevrolet', model: 'Trax 2022', price: '1 52О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 78 т км', transmission: 'Автомат', image: './cars/car16.jpeg' },
+		{ id: 17, brand: 'Toyota', model: 'Corolla 02/2023', price: '2 О8О ООО', body: 'Дилерский. Тойота центр. Привезём в кратчайшие сроки.', fuel: '1,6/135 л.с', transmission: 'Автомат', image: './cars/car17.jpeg' },
+		{ id: 18, brand: 'Nissan', model: 'Kicks 2023', price: '1 65О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,6 / 47 т км', transmission: 'Автомат', image: './cars/car18.jpeg' },
+		{ id: 19, brand: 'KIA', model: 'Sportage 2023', price: '4 37О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,6 / 70 т км', transmission: 'Автомат', image: './cars/car19.jpeg' },
+		{ id: 20, brand: 'Mercedes', model: 'GLE350 2025', price: '9 7OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 13 т.миль', transmission: 'Автомат', image: './cars/car20.jpeg' }
 	];
 
 	const state = {
@@ -321,6 +321,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
 		cardContainer.style.height = '300px';
+		cardContainer.style.marginTop = '30px';
 
 		const best = getAIRecommendation();
 
@@ -354,7 +355,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(script);
 
 		cardContainer.innerHTML = `
-			<div class="white-block bg-white p-8 rounded-3xl shadow-2xl text-center">
+			<div class="white-block bg-white p-6 rounded-3xl shadow-2xl text-center">
         <h2 class="text-3xl font-bold mb-3">Готово 🎯</h2>
         <p class="mb-3">Лучший вариант для вас:</p>
         <div class="mb-4 font-bold text-xl">
@@ -386,6 +387,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			state.lastAction = null;
 
 			cardContainer.style.height = '500px';
+			cardContainer.style.marginTop = '20px';
 
 			renderCards();
 		};
