@@ -354,7 +354,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(script);
 
 		cardContainer.innerHTML = `
-			<div class="bg-white p-8 rounded-3xl shadow-2xl text-center">
+			<div class="white-block bg-white p-8 rounded-3xl shadow-2xl text-center">
         <h2 class="text-3xl font-bold mb-3">Готово 🎯</h2>
         <p class="mb-3">Лучший вариант для вас:</p>
         <div class="mb-4 font-bold text-xl">

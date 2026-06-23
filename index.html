@@ -13,37 +13,31 @@
 
 			<div class="container mx-auto px-4 py-4">
 
-				<header class="text-center mb-4">
-
-					<section class="flex justify-between items-stretch gap-12 mb-2">
+				<div class="hero">
+					<div class="row-hero mb-4">
 						<img class="logo" src="./logo.svg" alt="Logo">
-
-						<h1 class="text-3xl font-bold text-gray-800 flex items-center gap-2">
-							АвтоТиндер
-							<img class="banner" src="./banner.png" alt="Banner">
-						</h1>
-					</section>
-
-					<p class="text-gray-600 mb-4 leading-[1.5]">
-						Свайпайте автомобили и найдите свой идеальный вариант
-					</p>
-
-				</header>
-
-				<div class="text-center mb-8">
-
-					<div class="text-sm text-gray-500">
-						Точность определения:
-						<span id="accuracy">15%</span>
+						<header class="text-center">
+							<h1 class="text-3xl font-bold text-gray-800 flex justify-end items-center gap-2 mb-1">
+								АвтоТиндер
+								<img class="banner" src="./banner.png" alt="Banner">
+							</h1>
+							<p class="text-gray-600 leading-[1.5] text-right">
+								Свайпайте автомобили и найдите свой идеальный вариант
+							</p>
+						</header>
 					</div>
-
-					<div class="w-full max-w-md mx-auto bg-gray-200 rounded-full h-2 mt-2">
-
-						<div id="accuracy-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500" style="width:15%">
+					<hr>
+					<div class="text-center mt-4">
+						<div class="text-sm text-gray-500">
+							Точность определения:
+							<span id="accuracy">15%</span>
 						</div>
-
+						<div class="w-full max-w-md mx-auto bg-gray-200 rounded-full h-2 mt-2">
+							<div id="accuracy-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500"
+								style="width:15%">
+							</div>
+						</div>
 					</div>
-
 				</div>
 
 				<div class="counter text-center mb-5 hidden">
