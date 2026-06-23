@@ -3,26 +3,26 @@ import '../scss/style.scss';
 window.addEventListener('DOMContentLoaded', () => {
 
 	const cars = [
-		{ id: 1, brand: 'BMW', model: 'X5', price: 65000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1200' },
-		{ id: 2, brand: 'Audi', model: 'Q7', price: 62000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200' },
-		{ id: 3, brand: 'Tesla', model: 'Model Y', price: 59000, body: 'Внедорожник', fuel: 'Электро', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1200' },
-		{ id: 4, brand: 'Mercedes', model: 'GLE', price: 72000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
-		{ id: 5, brand: 'Volvo', model: 'XC90', price: 61000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
-		{ id: 6, brand: 'Toyota', model: 'RAV4', price: 42000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=1200' },
-		{ id: 7, brand: 'Lexus', model: 'RX', price: 69000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200' },
-		{ id: 8, brand: 'Porsche', model: 'Cayenne', price: 98000, body: 'Внедорожник', fuel: 'Бензин', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
-		{ id: 9, brand: 'Volkswagen', model: 'Touareg', price: 58000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200' },
-		{ id: 10, brand: 'Skoda', model: 'Kodiaq', price: 41000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
-		{ id: 11, brand: 'Ford', model: 'Explorer', price: 54000, body: 'Внедорожник', fuel: 'Бензин', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
-		{ id: 12, brand: 'Hyundai', model: 'Santa Fe', price: 45000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' },
-		{ id: 13, brand: 'Kia', model: 'Sorento', price: 47000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=1200' },
-		{ id: 14, brand: 'Nissan', model: 'X-Trail', price: 39000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1200' },
-		{ id: 15, brand: 'Mazda', model: 'CX-60', price: 52000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=1200' },
-		{ id: 16, brand: 'Peugeot', model: '5008', price: 38000, body: 'Внедорожник', fuel: 'Дизель', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1493238792000-8113da705763?w=1200' },
-		{ id: 17, brand: 'Renault', model: 'Austral', price: 36000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200' },
-		{ id: 18, brand: 'Honda', model: 'CR-V', price: 48000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200' },
-		{ id: 19, brand: 'Chevrolet', model: 'Tahoe', price: 87000, body: 'Внедорожник', fuel: 'Бензин', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200' },
-		{ id: 20, brand: 'Jeep', model: 'Grand Cherokee', price: 63000, body: 'Внедорожник', fuel: 'Гибрид', transmission: 'Автомат', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200' }
+		{ id: 1, brand: 'Volkswagen', model: 'Tharu', price: '2.300.000', body: 'Передний привод', fuel: 'Пробег: 5 400 км', transmission: 'Состояние нового автомобиля под заказ из Китая 🇨🇳', image: 'src/img/cars/car1.jpeg' },
+		{ id: 2, brand: 'BMW 3', model: 'Series 2023', price: '3 440 000', body: 'Задний привод', fuel: 'Пробег: 32 000 км', transmission: 'Родной окрас, без перекрасов под заказ из Китая 🇨🇳', image: 'src/img/cars/car2.jpeg' },
+		{ id: 3, brand: 'KIA', model: 'KX3 2021', price: '1 890 000', body: 'Передний привод', fuel: 'Пробег: 35 000 км', transmission: 'Родной окрас, без перекрасов', image: 'src/img/cars/car3.jpeg' },
+		{ id: 4, brand: 'Hyundai', model: 'Venue 2022', price: '1 721 ООО', body: 'Внедорожник', fuel: '1,6/ 76 т.км', transmission: 'Автомат', image: 'src/img/cars/car4.jpeg' },
+		{ id: 5, brand: 'Hyundai', model: 'Venue 2023', price: '1 601 ООО', body: 'Внедорожник', fuel: ',6/ 39 т.км', transmission: 'Автомат', image: 'src/img/cars/car5.jpeg' },
+		{ id: 6, brand: 'Nissan', model: 'Kicks 2025', price: '2 412 ООО', body: 'Внедорожник', fuel: '2/ 736 миль', transmission: 'Автомат', image: 'src/img/cars/car6.jpeg' },
+		{ id: 7, brand: 'Mitsubishi', model: 'Outlander 2023', price: '1 746 ООО', body: 'Внедорожник', fuel: '2/ 45 т км', transmission: 'Автомат', image: 'src/img/cars/car7.jpeg' },
+		{ id: 8, brand: 'Hyundai', model: 'Kona 2023', price: '1 871 ООО', body: 'Внедорожник', fuel: '2/ 11 т км', transmission: 'Автомат', image: 'src/img/cars/car8.jpeg' },
+		{ id: 9, brand: 'Hyundai', model: 'Kona 2023', price: '1 753 ООО', body: 'Внедорожник', fuel: '2/ 70 т км', transmission: 'Автомат', image: 'src/img/cars/car9.jpeg' },
+		{ id: 10, brand: 'Kia', model: 'SELTOS 2023', price: '1 785 ООО', body: 'Внедорожник', fuel: '2/ 53 т км', transmission: 'Автомат', image: 'src/img/cars/car10.jpeg' },
+		{ id: 11, brand: 'Hyundai', model: 'Elantra 2025', price: '1 825 ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2/ 357 км', transmission: 'Автомат', image: 'src/img/cars/car11.jpeg' },
+		{ id: 12, brand: 'Volkswagen', model: 'Jetta 2021', price: '1 597 ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 59 т миль', transmission: 'Автомат', image: 'src/img/cars/car12.jpeg' },
+		{ id: 13, brand: 'KIA', model: 'SOUL 2023', price: '1 83О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 47 т км', transmission: 'Автомат', image: 'src/img/cars/car13.jpeg' },
+		{ id: 14, brand: 'Volkswagen', model: 'Jetta 2021', price: '1 4OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 41 т км', transmission: 'Автомат', image: 'src/img/cars/car14.jpeg' },
+		{ id: 15, brand: 'KIA', model: 'K4 2025', price: ' 2 7OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 3 т км', transmission: 'Автомат', image: 'src/img/cars/car15.jpeg' },
+		{ id: 16, brand: 'Chevrolet', model: 'Trax 2022', price: '1 52О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,4 / 78 т км', transmission: 'Автомат', image: 'src/img/cars/car16.jpeg' },
+		{ id: 17, brand: 'Toyota', model: 'Corolla 02/2023', price: '2 О8О ООО', body: 'Дилерский. Тойота центр. Привезём в кратчайшие сроки.', fuel: '1,6/135 л.с', transmission: 'Автомат', image: 'src/img/cars/car17.jpeg' },
+		{ id: 18, brand: 'Nissan', model: 'Kicks 2023', price: '1 65О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,6 / 47 т км', transmission: 'Автомат', image: 'src/img/cars/car18.jpeg' },
+		{ id: 19, brand: 'KIA', model: 'Sportage 2023', price: '4 37О ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '1,6 / 70 т км', transmission: 'Автомат', image: 'src/img/cars/car19.jpeg' },
+		{ id: 20, brand: 'Mercedes', model: 'GLE350 2025', price: '9 7OО ООО', body: 'Доступен к заказу из Грузии 🇬🇪', fuel: '2 / 13 т.миль', transmission: 'Автомат', image: 'src/img/cars/car20.jpeg' }
 	];
 
 	const state = {
@@ -138,7 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
       <div class="swipe-overlay nope-overlay"></div>
       <div class="absolute bottom-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent text-white">
         <h2 class="text-3xl font-bold">${car.brand} ${car.model}</h2>
-        <div class="text-xl">${car.price.toLocaleString()} €</div>
+        <div class="text-xl">${car.price.toLocaleString()} ₽</div>
         <div>${car.body} • ${car.fuel} • ${car.transmission}</div>
       </div>
 		`;

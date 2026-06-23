@@ -241,3 +241,29 @@
     content: 'МИМО';
   }
 }
+
+[data-id="1"],
+[data-id="2"],
+[data-id="3"] {
+  background-position-x: 0%;
+}
+
+[data-id="5"] {
+  background-position-x: 20%;
+}
+
+[data-id="11"] {
+  background-position-x: 80%;
+}
+
+[data-id="13"] {
+  background-position-x: 30%;
+}
+
+[data-id="16"] {
+  background-position-x: 100%;
+}
+
+[data-id="17"] {
+  background-position-x: 33%;
+}
